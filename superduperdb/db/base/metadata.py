@@ -1,6 +1,7 @@
-import time
 import typing as t
 from abc import ABC, abstractmethod
+
+from superduperdb.misc import time
 
 
 class MetaDataStore(ABC):

@@ -13,7 +13,7 @@ def test_typed_cache():
 
     cache = TypedCache()
 
-    with mock.patch('time.time', side_effect=time):
+    with mock.patch('superduperdb.misc.time', side_effect=time):
         assert cache.put(23) == 'int-0'
         assert cache.put('123') == 'str-0'
 

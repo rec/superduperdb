@@ -1,11 +1,12 @@
 import os
 import random
-import time
 from threading import Thread
 from unittest import mock
 
 import numpy as np
 import pytest
+
+from superduperdb.misc import time
 
 try:
     import torch

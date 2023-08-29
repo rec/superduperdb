@@ -39,7 +39,7 @@ def test_clean():
         now += 1
         return now - 1
 
-    with mock.patch('time.time', side_effect=time):
+    with mock.patch('superduperdb.misc.time', side_effect=time):
         cache = KeyCache[str]()
         [cache.put(str(i)) for i in range(256)]
 

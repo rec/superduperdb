@@ -1,8 +1,9 @@
 import abc
 import dataclasses as dc
-import time
 import typing as t
 from threading import Lock
+
+from superduperdb.misc import time
 
 Entry = t.TypeVar('Entry')
 

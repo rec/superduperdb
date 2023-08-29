@@ -3,7 +3,6 @@ import datetime
 import json
 import queue
 import threading
-import time
 import traceback
 import typing as t
 from abc import ABC, abstractmethod
@@ -21,6 +20,7 @@ from superduperdb.container.task_workflow import TaskWorkflow
 from superduperdb.container.vector_index import VectorIndex
 from superduperdb.db.base.db import DB
 from superduperdb.db.mongodb import query
+from superduperdb.misc import time
 from superduperdb.misc.task_queue import cdc_queue
 from superduperdb.vector_search.base import VectorCollectionConfig, VectorCollectionItem
 

@@ -1,9 +1,10 @@
-import time
 import uuid
 from contextlib import contextmanager
 
 import pytest
 import tdir
+
+from superduperdb.misc import time
 
 try:
     import torch

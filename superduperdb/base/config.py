@@ -201,6 +201,7 @@ class Config(JSONable):
     cdc: bool = False
     dask: Dask = Factory(Dask)
     data_layers: DataLayers = Factory(DataLayers)
+    debug: bool = False
     distributed: bool = False
     logging: Logging = Factory(Logging)
     model_server: ModelServer = Factory(ModelServer)
