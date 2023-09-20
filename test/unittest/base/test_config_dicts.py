@@ -6,7 +6,7 @@ from superduperdb.base import config_dicts
 
 
 def test_combine_config_dicts():
-    actual = config_dicts._combine(
+    actual = config_dicts.combine(
         (
             {'one': {'two': ['three', 'four', 'five']}},
             {'one': {'three': 3}},

@@ -10,6 +10,8 @@ from pathlib import Path
 
 import fil
 
+__all__ = 'config_dicts', 'combine'
+
 Dict = t.Dict[str, object]
 Files = t.Sequence[t.Union[Path, str]]
 StrDict = t.Dict[str, str]
@@ -21,7 +23,14 @@ _NONE = object()
 def config_dicts(files: Files, parent: StrDict, prefix: str, environ: StrDict) -> Dict:
     data = _read_all(files)
     environ_dict = _environ_to_config_dict(prefix, parent, environ)
-    return _combine((*data, environ_dict))
+    return combine((*data, environ_dict))
+
+
+def combine(dicts: t.Iterable[Dict]) -> Dict:
+    result: Dict = {}
+    for d in dicts:
+        _combine_one(result, d)
+    return result
 
 
 def _read_all(files: Files, fail: bool = False) -> t.Sequence[Dict]:
@@ -29,13 +38,6 @@ def _read_all(files: Files, fail: bool = False) -> t.Sequence[Dict]:
         return [fil.read(f) for f in files]
     else:
         return [fil.read(f, {}) for f in files]
-
-
-def _combine(dicts: t.Sequence[Dict]) -> Dict:
-    result: Dict = {}
-    for d in dicts:
-        _combine_one(result, d)
-    return result
 
 
 def _environ_to_config_dict(
